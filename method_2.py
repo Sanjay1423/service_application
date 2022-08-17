@@ -1,3 +1,5 @@
+# Method using filter function 
+
 print('Welcome to Home Serive Application')
 
 
