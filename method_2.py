@@ -1,7 +1,3 @@
-# Method using filter function 
-
-print('Welcome to Home Serive Application')
-
 
 class users:
     users_list = [
@@ -34,12 +30,38 @@ class check_login(users):
             return "User already exist"
 
 
+class Service:
+
+    no_of_services = ['Plumbing', 'Painting', 'Capentering', 'Servicing']
+    cities = ['Chennai', 'Coimbatore', 'Ooty', 'Trichy']
+    available_servies = {cities[0]: [0, 1, 2, 3], cities[1]: [0, 2, 3], cities[2]: [2, 0], cities[3]: [1, 2]}
+
+    def service_function(self):
+
+        print('Select your City location')
+        print('Chennai,Ooty,Coimbatore,Trichy')
+        city_name = input().capitalize()
+
+        if city_name in Service.cities:
+            print('Available Services\n')
+            for i in Service.available_servies[city_name]:
+                print(Service.no_of_services[i])
+        else:
+            print(
+                f'Services is not availble for {city_name}. Services available only for ')
+            for i in Service.cities:
+                print(i)
+
+
 def main():
+    print('Welcome to home service application')
     name = input("Enter your name:")
     email = input("Enter your email ID:")
     password = input("Enter your password:")
     user1 = check_login(name, email, password)
+    service = Service()
     print(user1.sign_up())
+    service.service_function()
 
 
 if __name__ == '__main__':
